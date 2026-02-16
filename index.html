@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InsightLoopAI | Financial & Operational Automation</title>
+
+    <!-- Google Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Icons (Feather Icons) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
       body {
         font-family: "Inter", sans-serif;
@@ -16,39 +22,102 @@
         color: #f8fafc;
         line-height: 1.6;
       }
+
       section {
         padding: 80px 20px;
         max-width: 900px;
         margin: auto;
       }
+
       h1,
       h2 {
         font-weight: 800;
       }
+
       .btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         padding: 12px 24px;
         background: #3b82f6;
         color: white;
         text-decoration: none;
         border-radius: 6px;
         margin-top: 20px;
+        transition:
+          background 0.25s ease,
+          transform 0.25s ease;
       }
+
+      .btn:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+      }
+
       .muted {
         color: #94a3b8;
       }
+
+      /* Footer */
+      footer {
+        background: #1e293b;
+        padding: 40px 20px;
+        text-align: center;
+        margin-top: 60px;
+      }
+
+      footer a {
+        color: #3b82f6;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: opacity 0.25s ease;
+      }
+
+      footer a:hover {
+        opacity: 0.7;
+      }
+
+      /* Floating Calendly Button */
+      .floating-calendly {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: #3b82f6;
+        color: white;
+        padding: 14px 20px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease;
+        z-index: 999;
+      }
+
+      .floating-calendly:hover {
+        background: #2563eb;
+        transform: translateY(-3px);
+      }
     </style>
   </head>
+
   <body>
+    <!-- HERO -->
     <section>
       <h1>Financial & Operational Automation Systems for SMEs</h1>
       <p class="muted">
         InsightLoopAI designs automation systems that eliminate manual
         processes, reduce financial errors, and protect operational margins.
       </p>
-      <a href="#contact" class="btn">Book an Automation Audit</a>
+      <a href="#contact" class="btn">
+        <i data-feather="calendar"></i> Book an Automation Audit
+      </a>
     </section>
 
+    <!-- PROBLEMS -->
     <section>
       <h2>Manual Operations Quietly Drain Revenue</h2>
       <ul>
@@ -60,6 +129,7 @@
       </ul>
     </section>
 
+    <!-- AUDIT -->
     <section>
       <h2>Automation Audit</h2>
       <p>
@@ -69,6 +139,7 @@
       <p class="muted">Starting at $250</p>
     </section>
 
+    <!-- IMPLEMENTATION -->
     <section>
       <h2>Implementation</h2>
       <p>
@@ -77,6 +148,7 @@
       </p>
     </section>
 
+    <!-- HOW IT WORKS -->
     <section>
       <h2>How It Works</h2>
       <ol>
@@ -87,20 +159,63 @@
       </ol>
     </section>
 
+    <!-- FOUNDER -->
     <section>
       <h2>Founder</h2>
       <p>
-        Femi oloye is an Automation Systems Architect specializing in financial
+        Femi Oloye is an Automation Systems Architect specializing in financial
         reconciliation and operational efficiency systems.
+      </p>
+
+      <p style="margin-top: 20px">
+        <a
+          href="https://www.linkedin.com/in/femi-oloye"
+          class="btn"
+          style="background: #1e293b"
+        >
+          <i data-feather="linkedin"></i> Connect on LinkedIn
+        </a>
       </p>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <h2>Stop Losing Revenue to Manual Processes</h2>
       <p>Email: femi@insightloopai.com</p>
-      <a href="https://calendly.com/YOUR_LINK" class="btn"
-        >Schedule Discovery Call</a
+
+      <a
+        href="https://calendly.com/femi-oloye/30min"
+        class="btn"
+        style="margin-top: 10px"
       >
+        <i data-feather="calendar"></i> Schedule Discovery Call
+      </a>
     </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 InsightLoopAI — Automation for Financial Operations</p>
+
+      <div style="margin-top: 10px">
+        <a href="https://www.linkedin.com/in/femi-oloye">
+          <i data-feather="linkedin"></i>
+        </a>
+        <a href="https://calendly.com/femi-oloye/30min">
+          <i data-feather="calendar"></i>
+        </a>
+        <a href="mailto:femi@insightloopai.com">
+          <i data-feather="mail"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Floating Calendly Button -->
+    <a href="https://calendly.com/femi-oloye/30min" class="floating-calendly">
+      <i data-feather="calendar"></i> Book a Call
+    </a>
+
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
