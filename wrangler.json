@@ -1,0 +1,8 @@
+{
+  "name": "professional-website",
+  "main": "index.html",
+  "compatibility_date": "2026-02-16",
+  "assets": {
+    "directory": "./"
+  }
+}
