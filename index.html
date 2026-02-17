@@ -13,7 +13,7 @@
 
     <!-- Google Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -21,212 +21,1867 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
+      :root {
+        --bg: #020617;
+        --bg-elevated: #020617;
+        --bg-soft: #0b1220;
+        --card: #020617;
+        --accent: #3b82f6;
+        --accent-soft: rgba(59, 130, 246, 0.12);
+        --accent-strong: #2563eb;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border-subtle: #1f2937;
+        --danger: #f97373;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         font-family: "Inter", sans-serif;
         margin: 0;
-        background: #0f172a;
-        color: #f8fafc;
+        background: radial-gradient(circle at top, #0b1120 0, #020617 55%);
+        color: var(--text);
         line-height: 1.6;
       }
 
-      section {
-        padding: 80px 20px;
-        max-width: 900px;
-        margin: auto;
+      a {
+        color: inherit;
       }
 
-      h1,
-      h2 {
+      .page {
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* NAVBAR */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(16px);
+        background: linear-gradient(
+          to bottom,
+          rgba(2, 6, 23, 0.95),
+          rgba(2, 6, 23, 0.85),
+          transparent
+        );
+        border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 0, #60a5fa, #1d4ed8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 0 0 1px rgba(37, 99, 235, 0.4),
+          0 12px 30px rgba(15, 23, 42, 0.9);
+      }
+
+      .logo-mark span {
+        font-size: 18px;
         font-weight: 800;
+        color: white;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-text span:first-child {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        font-size: 14px;
+      }
+
+      .logo-text span:last-child {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 14px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--muted);
+        padding: 6px 0;
+        position: relative;
+        transition:
+          color 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(to right, #60a5fa, #2563eb);
+        transition: width 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: #e5e7eb;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        color: #e5e7eb;
+        text-decoration: none;
+        font-size: 13px;
+        background: radial-gradient(circle at top left, #1d4ed8 0, #020617 55%);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-1px);
+        border-color: rgba(96, 165, 250, 0.8);
+        background: radial-gradient(circle at top left, #2563eb 0, #020617 60%);
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+      }
+
+      .nav-cta span {
+        font-weight: 500;
+      }
+
+      .nav-cta small {
+        color: #9ca3af;
+        font-size: 11px;
+      }
+
+      .nav-toggle {
+        display: none;
+        border: none;
+        background: transparent;
+        color: var(--text);
+      }
+
+      /* HERO */
+      main {
+        padding-bottom: 80px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+        gap: 40px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 10px 4px 4px;
+        border-radius: 999px;
+        border: 1px solid rgba(55, 65, 81, 0.9);
+        background: radial-gradient(circle at top left, #111827 0, #020617 60%);
+        color: var(--muted);
+        font-size: 11px;
+        margin-bottom: 16px;
+      }
+
+      .eyebrow-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 0, #60a5fa, #1d4ed8);
+        color: white;
+        font-size: 13px;
+        box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
+      }
+
+      .eyebrow span {
+        opacity: 0.9;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 4vw, 40px);
+        line-height: 1.1;
+        margin: 0 0 16px;
+        letter-spacing: -0.03em;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(to right, #bfdbfe, #60a5fa);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .hero-sub {
+        color: var(--muted);
+        font-size: 15px;
+        max-width: 520px;
+      }
+
+      .hero-sub strong {
+        color: #e5e7eb;
+        font-weight: 500;
+      }
+
+      .hero-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+        align-items: center;
       }
 
       .btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 12px 24px;
-        background: #3b82f6;
+        padding: 11px 20px;
+        background: linear-gradient(to right, #2563eb, #1d4ed8);
         color: white;
         text-decoration: none;
-        border-radius: 6px;
-        margin-top: 20px;
+        border-radius: 999px;
+        font-size: 14px;
+        border: 1px solid rgba(191, 219, 254, 0.3);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
         transition:
-          background 0.25s ease,
-          transform 0.25s ease;
+          background 0.2s ease,
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
       }
 
       .btn:hover {
-        background: #2563eb;
-        transform: translateY(-2px);
+        background: linear-gradient(to right, #1d4ed8, #1d4ed8);
+        transform: translateY(-1px);
+        box-shadow: 0 24px 55px rgba(15, 23, 42, 0.95);
+        border-color: rgba(191, 219, 254, 0.6);
+      }
+
+      .btn-secondary {
+        background: rgba(15, 23, 42, 0.9);
+        border-color: rgba(55, 65, 81, 0.9);
+        color: #e5e7eb;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+      }
+
+      .btn-secondary:hover {
+        background: #020617;
+        border-color: rgba(148, 163, 184, 0.9);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      }
+
+      .hero-note {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .hero-note span {
+        color: #bbf7d0;
+      }
+
+      .hero-card {
+        border-radius: 18px;
+        padding: 18px 18px 16px;
+        background: radial-gradient(circle at top left, #020617 0, #020617 55%);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
+      }
+
+      .hero-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+
+      .hero-card-title {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .hero-chip {
+        font-size: 11px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(22, 163, 74, 0.12);
+        color: #bbf7d0;
+        border: 1px solid rgba(34, 197, 94, 0.4);
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .metric {
+        padding: 10px 10px 9px;
+        border-radius: 12px;
+        background: radial-gradient(circle at top, #020617 0, #020617 60%);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+      }
+
+      .metric-label {
+        font-size: 10px;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+
+      .metric-value {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .metric-value span {
+        font-size: 11px;
+        color: #22c55e;
+        margin-left: 4px;
+      }
+
+      .hero-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 10px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .hero-list li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 4px;
+      }
+
+      .hero-list-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #22c55e;
+      }
+
+      .hero-testimonial {
+        border-top: 1px solid rgba(31, 41, 55, 0.9);
+        padding-top: 10px;
+        margin-top: 8px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .hero-avatar {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        background: linear-gradient(to bottom right, #1d4ed8, #22c55e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .hero-testimonial-text {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .hero-testimonial-text strong {
+        color: #e5e7eb;
+        font-weight: 500;
+      }
+
+      .hero-testimonial-meta {
+        font-size: 10px;
+        color: #6b7280;
+      }
+
+      /* SECTION SHARED */
+      .section-header {
+        margin-bottom: 24px;
+      }
+
+      .section-kicker {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        margin: 0 0 6px;
+        letter-spacing: -0.02em;
+      }
+
+      .section-sub {
+        font-size: 14px;
+        color: var(--muted);
+        max-width: 520px;
+      }
+
+      /* PROBLEMS / OUTCOMES */
+      .two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+        gap: 32px;
+      }
+
+      .card {
+        border-radius: 16px;
+        padding: 18px 18px 16px;
+        background: radial-gradient(circle at top left, #020617 0, #020617 55%);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 16px;
       }
 
       .muted {
-        color: #94a3b8;
+        color: var(--muted);
       }
 
-      /* Footer */
+      .list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 13px;
+      }
+
+      .list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 6px 0;
+        border-bottom: 1px dashed rgba(31, 41, 55, 0.8);
+      }
+
+      .list li:last-child {
+        border-bottom: none;
+      }
+
+      .list-icon {
+        margin-top: 3px;
+        color: #f97316;
+      }
+
+      .list-label {
+        font-weight: 500;
+      }
+
+      .list-desc {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .pill {
+        font-size: 11px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(55, 65, 81, 0.9);
+        color: var(--muted);
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      .pill-strong {
+        border-color: rgba(59, 130, 246, 0.7);
+        color: #bfdbfe;
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      /* SERVICES */
+      .services-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+        gap: 24px;
+      }
+
+      .price-tag {
+        font-size: 13px;
+        margin-top: 6px;
+        color: #bfdbfe;
+      }
+
+      .price-tag span {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 10px;
+      }
+
+      .badge {
+        font-size: 11px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        color: var(--muted);
+      }
+
+      .badge-cta {
+        border-color: rgba(59, 130, 246, 0.8);
+        color: #bfdbfe;
+      }
+
+      /* HOW IT WORKS */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .step {
+        border-radius: 14px;
+        padding: 12px 12px 11px;
+        background: radial-gradient(circle at top, #020617 0, #020617 60%);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+      }
+
+      .step-index {
+        width: 20px;
+        height: 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(55, 65, 81, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .step-title {
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .step-desc {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* SOCIAL PROOF / FOUNDER */
+      .founder-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+        gap: 24px;
+      }
+
+      .founder-card {
+        display: flex;
+        gap: 12px;
+      }
+
+      .founder-avatar {
+        width: 46px;
+        height: 46px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 0, #60a5fa, #1d4ed8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+        color: white;
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+      }
+
+      .founder-meta {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .founder-meta strong {
+        color: #e5e7eb;
+        font-weight: 600;
+      }
+
+      .founder-meta small {
+        display: block;
+        font-size: 11px;
+        color: #6b7280;
+        margin-top: 2px;
+      }
+
+      .founder-quote {
+        font-size: 12px;
+        margin-top: 8px;
+        color: var(--muted);
+      }
+
+      .logos-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 11px;
+        color: #6b7280;
+      }
+
+      .logo-pill {
+        padding: 5px 9px;
+        border-radius: 999px;
+        border: 1px dashed rgba(55, 65, 81, 0.9);
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      .quote-card {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .quote-card blockquote {
+        margin: 0 0 8px;
+        font-style: italic;
+        color: #e5e7eb;
+      }
+
+      .quote-meta {
+        font-size: 11px;
+        color: #6b7280;
+      }
+
+      /* FAQ + CONTACT */
+      .faq-contact-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+        gap: 24px;
+      }
+
+      .faq-item {
+        border-radius: 12px;
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        background: rgba(15, 23, 42, 0.9);
+        margin-bottom: 8px;
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      .faq-question span {
+        font-weight: 500;
+      }
+
+      .faq-answer {
+        padding: 0 12px 10px;
+        font-size: 12px;
+        color: var(--muted);
+        display: none;
+      }
+
+      .faq-item.open .faq-answer {
+        display: block;
+      }
+
+      .faq-item.open .faq-toggle {
+        transform: rotate(90deg);
+      }
+
+      .faq-toggle {
+        transition: transform 0.2s ease;
+        color: var(--muted);
+      }
+
+      .contact-card {
+        border-radius: 16px;
+        padding: 16px 16px 14px;
+        background: radial-gradient(circle at top left, #020617 0, #020617 55%);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+      }
+
+      .contact-card p {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .contact-meta {
+        font-size: 12px;
+        margin-top: 8px;
+        color: var(--muted);
+      }
+
+      .contact-meta strong {
+        color: #e5e7eb;
+      }
+
+      form {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .form-full {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        display: block;
+        font-size: 11px;
+        color: #9ca3af;
+        margin-bottom: 4px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        background: rgba(15, 23, 42, 0.9);
+        color: #e5e7eb;
+        padding: 8px 9px;
+        font-size: 12px;
+        font-family: inherit;
+        outline: none;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: rgba(59, 130, 246, 0.9);
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5);
+        background: #020617;
+      }
+
+      textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+
+      .form-hint {
+        font-size: 10px;
+        color: #6b7280;
+        margin-top: 4px;
+      }
+
+      .form-footer {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .form-footer small {
+        font-size: 10px;
+        color: #6b7280;
+      }
+
+      /* FOOTER */
       footer {
-        background: #1e293b;
-        padding: 40px 20px;
-        text-align: center;
-        margin-top: 60px;
+        border-top: 1px solid rgba(15, 23, 42, 0.9);
+        background: #020617;
+        padding: 20px 0 26px;
+        font-size: 11px;
+        color: #6b7280;
       }
 
-      footer a {
-        color: #3b82f6;
-        margin: 0 10px;
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-links a {
+        color: #9ca3af;
         text-decoration: none;
-        transition: opacity 0.25s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        background: rgba(15, 23, 42, 0.9);
+        transition:
+          border-color 0.2s ease,
+          background 0.2s ease,
+          color 0.2s ease;
       }
 
-      footer a:hover {
-        opacity: 0.7;
+      .footer-links a:hover {
+        border-color: rgba(59, 130, 246, 0.9);
+        color: #bfdbfe;
+        background: #020617;
       }
 
-      /* Floating Calendly Button */
+      /* FLOATING CALENDLY BUTTON */
       .floating-calendly {
         position: fixed;
-        bottom: 24px;
-        right: 24px;
-        background: #3b82f6;
+        bottom: 20px;
+        right: 20px;
+        background: radial-gradient(circle at top left, #2563eb 0, #1d4ed8 55%);
         color: white;
-        padding: 14px 20px;
-        border-radius: 50px;
+        padding: 11px 16px;
+        border-radius: 999px;
         display: flex;
         align-items: center;
         gap: 8px;
         text-decoration: none;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
         transition:
-          transform 0.25s ease,
-          background 0.25s ease;
+          transform 0.2s ease,
+          background 0.2s ease,
+          box-shadow 0.2s ease;
         z-index: 999;
+        font-size: 13px;
+        border: 1px solid rgba(191, 219, 254, 0.4);
       }
 
       .floating-calendly:hover {
-        background: #2563eb;
-        transform: translateY(-3px);
+        background: radial-gradient(circle at top left, #1d4ed8 0, #1d4ed8 60%);
+        transform: translateY(-2px);
+        box-shadow: 0 28px 70px rgba(15, 23, 42, 0.98);
+      }
+
+      .floating-calendly small {
+        font-size: 10px;
+        opacity: 0.9;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 840px) {
+        .hero-grid,
+        .two-col,
+        .services-grid,
+        .founder-grid,
+        .faq-contact-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        header {
+          background: rgba(2, 6, 23, 0.98);
+        }
+
+        .nav-links {
+          position: fixed;
+          inset: 52px 0 auto 0;
+          background: #020617;
+          padding: 10px 20px 12px;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+          display: none;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-cta {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .nav-toggle {
+          display: inline-flex;
+        }
+
+        .hero {
+          padding-top: 26px;
+        }
+
+        .floating-calendly {
+          bottom: 16px;
+          right: 16px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .steps {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        form {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .form-footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- HERO -->
-    <section>
-      <h1>
-        Structured Automation for Financial Accuracy and Operational Control
-      </h1>
-      <p class="muted">
-        We help SMEs eliminate manual errors, streamline financial workflows,
-        and build reliable automation systems that protect revenue.
-      </p>
-      <a href="#contact" class="btn">
-        <i data-feather="calendar"></i> Book an Automation Audit
-      </a>
-    </section>
+    <div class="page">
+      <!-- NAVBAR -->
+      <header>
+        <div class="container">
+          <nav class="nav">
+            <a href="#top" class="logo">
+              <div class="logo-mark">
+                <span>IL</span>
+              </div>
+              <div class="logo-text">
+                <span>InsightLoopAI</span>
+                <span>Operational Automation Systems</span>
+              </div>
+            </a>
 
-    <!-- PROBLEMS -->
-    <section>
-      <h2>Manual Operations Quietly Drain Revenue</h2>
-      <ul>
-        <li>Refund mismatches</li>
-        <li>Duplicate payment errors</li>
-        <li>Manual KPI reporting</li>
-        <li>Spreadsheet-driven reconciliation</li>
-        <li>Delayed financial visibility</li>
-      </ul>
-    </section>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+              <i data-feather="menu"></i>
+            </button>
 
-    <!-- AUDIT -->
-    <section>
-      <h2>Automation Audit</h2>
-      <p>
-        A structured review of your workflows to identify inefficiencies, risks,
-        and high-impact automation opportunities.
-      </p>
-      <p class="muted">Starting at $250</p>
-    </section>
+            <div class="nav-links" id="nav-links">
+              <a href="#problems">Problems</a>
+              <a href="#services">Services</a>
+              <a href="#process">Process</a>
+              <a href="#founder">Founder</a>
+              <a href="#faq">FAQ</a>
+              <a href="#contact" class="nav-cta">
+                <i data-feather="calendar"></i>
+                <span>Book audit</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </header>
 
-    <!-- IMPLEMENTATION -->
-    <section>
-      <h2>Implementation</h2>
-      <p>
-        End-to-end deployment of automation systems including architecture
-        design, workflow automation, and AI integration.
-      </p>
-    </section>
+      <main id="top">
+        <!-- HERO -->
+        <section class="hero">
+          <div class="container hero-grid">
+            <div>
+              <div class="eyebrow">
+                <div class="eyebrow-pill">
+                  <i data-feather="shield"></i>
+                </div>
+                <span>Automation for finance & operations teams</span>
+              </div>
 
-    <!-- HOW IT WORKS -->
-    <section>
-      <h2>How It Works</h2>
-      <ol>
-        <li>Book an audit</li>
-        <li>Workflow analysis</li>
-        <li>Receive automation roadmap</li>
-        <li>Implementation & deployment</li>
-      </ol>
-    </section>
+              <h1>
+                Structured automation for
+                <span>financial accuracy</span> and operational control.
+              </h1>
 
-    <!-- FOUNDER -->
-    <section>
-      <h2>Founder</h2>
-      <p>
-        Femi Oloye is an Automation Systems Architect specializing in financial
-        reconciliation and operational efficiency systems.
-      </p>
+              <p class="hero-sub">
+                We design and implement automation systems that
+                <strong>eliminate manual errors</strong>, tighten
+                reconciliation, and give you
+                <strong>real-time financial visibility</strong> so revenue stops
+                leaking in the background.
+              </p>
 
-      <p style="margin-top: 20px">
-        <a
-          href="https://www.linkedin.com/in/oluwafemi-oloye-a3b772353"
-          class="btn"
-          style="background: #1e293b"
-        >
-          <i data-feather="linkedin"></i> Connect on LinkedIn
-        </a>
-      </p>
-    </section>
+              <div class="hero-ctas">
+                <a href="#contact" class="btn">
+                  <i data-feather="calendar"></i>
+                  <span>Book an automation audit</span>
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                  <i data-feather="file-text"></i>
+                  <span>View deliverables</span>
+                </a>
+              </div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Stop Losing Revenue to Manual Processes</h2>
-      <p>Email: femi@insightloopai.com</p>
+              <p class="hero-note">
+                <span>Typical clients:</span> fintechs, payment processors, B2B
+                platforms, and SMEs processing
+                <strong>high transaction volumes</strong>.
+              </p>
+            </div>
 
+            <aside class="hero-card" aria-label="Impact snapshot">
+              <div class="hero-card-header">
+                <div class="hero-card-title">Automation impact snapshot</div>
+                <div class="hero-chip">Live client results</div>
+              </div>
+
+              <div class="hero-metrics">
+                <div class="metric">
+                  <div class="metric-label">Refund mismatches</div>
+                  <div class="metric-value">
+                    -78%
+                    <span>in 60 days</span>
+                  </div>
+                </div>
+                <div class="metric">
+                  <div class="metric-label">Manual checks</div>
+                  <div class="metric-value">
+                    -120 hrs/mo
+                    <span>ops team</span>
+                  </div>
+                </div>
+                <div class="metric">
+                  <div class="metric-label">Revenue leakage</div>
+                  <div class="metric-value">
+                    +$45k
+                    <span>recovered</span>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="hero-list">
+                <li>
+                  <span class="hero-list-dot"></span>
+                  <span
+                    >Automated reconciliation across wallets, banks, and
+                    processors.</span
+                  >
+                </li>
+                <li>
+                  <span class="hero-list-dot"></span>
+                  <span
+                    >Exception queues for only the 1–3% of transactions that
+                    need human review.</span
+                  >
+                </li>
+                <li>
+                  <span class="hero-list-dot"></span>
+                  <span
+                    >Daily CFO-ready reporting without spreadsheet
+                    gymnastics.</span
+                  >
+                </li>
+              </ul>
+
+              <div class="hero-testimonial">
+                <div class="hero-avatar">A</div>
+                <div>
+                  <div class="hero-testimonial-text">
+                    “We used to discover issues weeks later. With InsightLoopAI,
+                    we see anomalies <strong>the same day</strong> and our team
+                    only touches edge cases.”
+                  </div>
+                  <div class="hero-testimonial-meta">
+                    VP, Operations — Digital payments company (Nigeria)
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- PROBLEMS & OUTCOMES -->
+        <section id="problems">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-kicker">Why this matters</div>
+              <h2 class="section-title">
+                Manual operations quietly drain revenue
+              </h2>
+              <p class="section-sub">
+                When your financial workflows depend on spreadsheets and manual
+                checks, you’re paying for it in hidden leakage, delayed
+                decisions, and burned-out teams.
+              </p>
+            </div>
+
+            <div class="two-col">
+              <div class="card">
+                <h3>Common failure points we see</h3>
+                <ul class="list">
+                  <li>
+                    <span class="list-icon">
+                      <i
+                        data-feather="alert-triangle"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Refund mismatches</div>
+                      <div class="list-desc">
+                        Refunds processed on one system but not reflected in
+                        ledgers or wallets, creating silent balance gaps.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i
+                        data-feather="alert-triangle"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Duplicate payment errors</div>
+                      <div class="list-desc">
+                        Race conditions and retries causing double charges or
+                        double credits that are hard to detect at scale.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i
+                        data-feather="alert-triangle"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                    <div>
+                      <div class="list-label">
+                        Spreadsheet-driven reconciliation
+                      </div>
+                      <div class="list-desc">
+                        Analysts manually stitching CSVs from banks, processors,
+                        and internal systems—slow, fragile, and error-prone.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i
+                        data-feather="alert-triangle"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Delayed financial visibility</div>
+                      <div class="list-desc">
+                        Leadership gets a clear picture of balances and leakages
+                        days or weeks after they happen.
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="pill-row">
+                  <span class="pill">Wallet & ledger mismatches</span>
+                  <span class="pill">Unreconciled bank statements</span>
+                  <span class="pill">Unclear settlement positions</span>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>What we help you achieve</h3>
+                <ul class="list">
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="check-circle" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Single source of truth</div>
+                      <div class="list-desc">
+                        A consistent, automated view of balances across wallets,
+                        banks, and processors—updated continuously.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="check-circle" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Exception-only workflows</div>
+                      <div class="list-desc">
+                        Your team focuses on anomalies; the system handles the
+                        97–99% of clean transactions.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="check-circle" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Audit-ready reporting</div>
+                      <div class="list-desc">
+                        Clear, repeatable reports that satisfy internal and
+                        external auditors without last-minute scrambling.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="check-circle" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Protected revenue</div>
+                      <div class="list-desc">
+                        Leakages are detected early, quantified, and resolved
+                        before they become write-offs.
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="pill-row">
+                  <span class="pill pill-strong">Faster month-end close</span>
+                  <span class="pill pill-strong"
+                    >Fewer disputes & escalations</span
+                  >
+                  <span class="pill">Happier finance & ops teams</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-kicker">Services</div>
+              <h2 class="section-title">What working together looks like</h2>
+              <p class="section-sub">
+                We start with a focused automation audit, then move into
+                implementation if there’s a clear ROI and operational fit.
+              </p>
+            </div>
+
+            <div class="services-grid">
+              <!-- AUDIT -->
+              <div class="card">
+                <h3>Automation audit</h3>
+                <p class="muted">
+                  A structured review of your financial and operational
+                  workflows to identify inefficiencies, risks, and high-impact
+                  automation opportunities.
+                </p>
+
+                <p class="price-tag">
+                  Starting at $250
+                  <span> · typically 60–90 minutes + findings report</span>
+                </p>
+
+                <ul class="list" style="margin-top: 10px">
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="search" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Workflow mapping</div>
+                      <div class="list-desc">
+                        We map how money, data, and approvals move across your
+                        systems today.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="target" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Risk & leakage analysis</div>
+                      <div class="list-desc">
+                        We highlight where errors, delays, and leakages are most
+                        likely to occur.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="map" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Automation roadmap</div>
+                      <div class="list-desc">
+                        You receive a prioritized roadmap with quick wins and
+                        deeper system changes.
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="badge-row">
+                  <span class="badge badge-cta">Includes written summary</span>
+                  <span class="badge">Ideal for CFOs & Heads of Ops</span>
+                </div>
+
+                <div style="margin-top: 12px">
+                  <a href="#contact" class="btn btn-secondary">
+                    <i data-feather="calendar"></i>
+                    <span>Book audit slot</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- IMPLEMENTATION -->
+              <div class="card">
+                <h3>Implementation & ongoing systems</h3>
+                <p class="muted">
+                  End-to-end deployment of automation systems including
+                  architecture design, workflow automation, and AI-assisted
+                  monitoring.
+                </p>
+
+                <p class="price-tag">
+                  Custom project pricing
+                  <span> · based on scope, volume, and systems</span>
+                </p>
+
+                <ul class="list" style="margin-top: 10px">
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="layers" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">System architecture</div>
+                      <div class="list-desc">
+                        We design how your ledgers, wallets, banks, and
+                        third-party services should interact.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="zap" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Workflow automation</div>
+                      <div class="list-desc">
+                        We implement automated reconciliation, exception
+                        handling, and alerting flows.
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="list-icon">
+                      <i data-feather="activity" width="14" height="14"></i>
+                    </span>
+                    <div>
+                      <div class="list-label">Monitoring & observability</div>
+                      <div class="list-desc">
+                        Dashboards and alerts so your team sees issues before
+                        customers or auditors do.
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="badge-row">
+                  <span class="badge">Temporal / workflow engines</span>
+                  <span class="badge">Data pipelines & checks</span>
+                  <span class="badge">AI-assisted anomaly detection</span>
+                </div>
+
+                <div style="margin-top: 12px">
+                  <a
+                    href="https://calendly.com/oluwafemi-ezra/30min"
+                    class="btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i data-feather="calendar"></i>
+                    <span>Schedule discovery call</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section id="process">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-kicker">Process</div>
+              <h2 class="section-title">How we work together</h2>
+              <p class="section-sub">
+                Clear, low-friction steps—from first conversation to live
+                automation in production.
+              </p>
+            </div>
+
+            <div class="steps">
+              <div class="step">
+                <div class="step-index">1</div>
+                <div class="step-title">Book an audit</div>
+                <div class="step-desc">
+                  You pick a slot, share basic context, and we align on your
+                  current challenges and goals.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-index">2</div>
+                <div class="step-title">Workflow analysis</div>
+                <div class="step-desc">
+                  We map your flows, systems, and data sources, then identify
+                  failure points and automation opportunities.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-index">3</div>
+                <div class="step-title">Automation roadmap</div>
+                <div class="step-desc">
+                  You receive a concrete roadmap with effort estimates, impact,
+                  and recommended sequencing.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-index">4</div>
+                <div class="step-title">Implementation & deployment</div>
+                <div class="step-desc">
+                  We implement, test, and roll out automation with your team,
+                  then monitor and refine in production.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOUNDER / SOCIAL PROOF -->
+        <section id="founder">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-kicker">Founder</div>
+              <h2 class="section-title">Who you’ll be working with</h2>
+              <p class="section-sub">
+                You’re not getting a generic agency team—you’re working directly
+                with an automation systems architect who has lived inside
+                reconciliation and revenue protection problems.
+              </p>
+            </div>
+
+            <div class="founder-grid">
+              <div class="card">
+                <div class="founder-card">
+                  <div class="founder-avatar">FO</div>
+                  <div>
+                    <div class="founder-meta">
+                      <strong>Femi Oloye</strong>
+                      <small>Automation Systems Architect</small>
+                    </div>
+                    <p class="founder-quote">
+                      Femi specializes in financial reconciliation and
+                      operational efficiency systems—designing and deploying
+                      automation that keeps high-volume transaction businesses
+                      accurate, auditable, and calm.
+                    </p>
+                    <p class="founder-quote">
+                      He has worked on wallet race-condition detection,
+                      duplicate transaction handling, and balance progression
+                      systems for platforms processing millions of transactions.
+                    </p>
+                    <p style="margin-top: 10px">
+                      <a
+                        href="https://www.linkedin.com/in/oluwafemi-oloye-a3b772353"
+                        class="btn btn-secondary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i data-feather="linkedin"></i>
+                        <span>Connect on LinkedIn</span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="quote-card">
+                  <blockquote>
+                    “We brought Femi in when our reconciliation backlog was
+                    weeks behind. Within a few sprints, we had automated checks,
+                    clear exception queues, and our finance team finally trusted
+                    the numbers they were seeing.”
+                  </blockquote>
+                  <div class="quote-meta">
+                    Head of Finance — B2B payments platform
+                  </div>
+
+                  <p style="margin-top: 14px; margin-bottom: 8px">
+                    Selected areas of experience:
+                  </p>
+                  <div class="logos-row">
+                    <span class="logo-pill"
+                      >Wallet & ledger reconciliation</span
+                    >
+                    <span class="logo-pill"
+                      >Duplicate credit/debit detection</span
+                    >
+                    <span class="logo-pill">Balance snapshot progression</span>
+                    <span class="logo-pill">Dispute & refund workflows</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ + CONTACT -->
+        <section id="faq">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-kicker">Next steps</div>
+              <h2 class="section-title">Frequently asked questions</h2>
+              <p class="section-sub">
+                A few of the questions that usually come up before we start.
+              </p>
+            </div>
+
+            <div class="faq-contact-grid">
+              <!-- FAQ -->
+              <div>
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>Who is this a good fit for?</span>
+                    <span class="faq-toggle">
+                      <i
+                        data-feather="chevron-right"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                  </div>
+                  <div class="faq-answer">
+                    We’re a strong fit for SMEs and growth-stage companies that
+                    process a meaningful volume of transactions and already feel
+                    the pain of manual reconciliation, refund handling, or
+                    delayed reporting—especially in fintech, payments, and B2B
+                    platforms.
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>Do you work with our existing engineering team?</span>
+                    <span class="faq-toggle">
+                      <i
+                        data-feather="chevron-right"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                  </div>
+                  <div class="faq-answer">
+                    Yes. In most cases we collaborate closely with your
+                    engineering, finance, and operations teams—designing the
+                    architecture, then working with your engineers (or ours) to
+                    implement and roll out the automation safely.
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span
+                      >What if we’re not ready for full implementation?</span
+                    >
+                    <span class="faq-toggle">
+                      <i
+                        data-feather="chevron-right"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                  </div>
+                  <div class="faq-answer">
+                    That’s exactly what the automation audit is for. You’ll get
+                    clarity on where you stand, what’s worth automating, and
+                    what the ROI looks like—without committing to a full
+                    implementation project.
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <div class="faq-question">
+                    <span>How soon can we start seeing value?</span>
+                    <span class="faq-toggle">
+                      <i
+                        data-feather="chevron-right"
+                        width="14"
+                        height="14"
+                      ></i>
+                    </span>
+                  </div>
+                  <div class="faq-answer">
+                    Many clients see value within the first 2–4 weeks through
+                    quick-win automations (e.g., targeted checks, alerts, or
+                    small reconciliation flows) while we design and implement
+                    deeper system changes.
+                  </div>
+                </div>
+              </div>
+
+              <!-- CONTACT -->
+              <div id="contact">
+                <div class="contact-card">
+                  <h3>Stop losing revenue to manual processes</h3>
+                  <p>
+                    Share a bit about your current setup and we’ll respond with
+                    next steps and a suggested time for an audit.
+                  </p>
+
+                  <div class="contact-meta">
+                    <strong>Email:</strong>
+                    <a href="mailto:femi@insightloopai.com">
+                      femi@insightloopai.com
+                    </a>
+                    <br />
+                    <strong>Location:</strong> Remote · Serving teams across
+                    Africa and beyond
+                  </div>
+
+                  <form
+                    action="mailto:femi@insightloopai.com"
+                    method="post"
+                    enctype="text/plain"
+                  >
+                    <div>
+                      <label for="name">Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="Name"
+                        placeholder="Your name"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label for="email">Work email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="Email"
+                        placeholder="you@company.com"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label for="company">Company</label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="Company"
+                        placeholder="Company name"
+                      />
+                    </div>
+                    <div>
+                      <label for="role">Role</label>
+                      <input
+                        type="text"
+                        id="role"
+                        name="Role"
+                        placeholder="e.g. Head of Finance"
+                      />
+                    </div>
+                    <div class="form-full">
+                      <label for="context">What’s going wrong today?</label>
+                      <textarea
+                        id="context"
+                        name="Context"
+                        placeholder="Share a few lines about your current workflows, issues, and what you’d like to improve."
+                        required
+                      ></textarea>
+                      <div class="form-hint">
+                        Helpful details: systems involved, transaction volume,
+                        where you suspect leakage or delays.
+                      </div>
+                    </div>
+
+                    <div class="form-full form-footer">
+                      <button type="submit" class="btn">
+                        <i data-feather="send"></i>
+                        <span>Send details</span>
+                      </button>
+                      <small>
+                        Or book directly:
+                        <a
+                          href="https://calendly.com/oluwafemi-ezra/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >30‑minute discovery call</a
+                        >.
+                      </small>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer>
+        <div class="container footer-row">
+          <div>
+            © 2026 InsightLoopAI — Automation for financial operations. All
+            rights reserved.
+          </div>
+          <div class="footer-links">
+            <a
+              href="https://www.linkedin.com/in/oluwafemi-oloye-a3b772353"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <i data-feather="linkedin" width="14" height="14"></i>
+            </a>
+            <a
+              href="https://calendly.com/oluwafemi-ezra/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Calendly"
+            >
+              <i data-feather="calendar" width="14" height="14"></i>
+            </a>
+            <a
+              href="mailto:femi@insightloopai.com"
+              aria-label="Email Femi at InsightLoopAI"
+            >
+              <i data-feather="mail" width="14" height="14"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <!-- FLOATING CALENDLY BUTTON -->
       <a
         href="https://calendly.com/oluwafemi-ezra/30min"
-        class="btn"
-        style="margin-top: 10px"
+        class="floating-calendly"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <i data-feather="calendar"></i> Schedule Discovery Call
+        <i data-feather="calendar"></i>
+        <div>
+          <div>Book a 30‑min discovery call</div>
+          <small>No obligation · See if there’s a fit</small>
+        </div>
       </a>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2026 InsightLoopAI — Automation for Financial Operations</p>
-
-      <div style="margin-top: 10px">
-        <a href="https://www.linkedin.com/in/oluwafemi-oloye-a3b772353">
-          <i data-feather="linkedin"></i>
-        </a>
-        <a href="https://calendly.com/oluwafemi-ezra/30min">
-          <i data-feather="calendar"></i>
-        </a>
-        <a href="mailto:femi@insightloopai.com">
-          <i data-feather="mail"></i>
-        </a>
-      </div>
-    </footer>
-
-    <!-- Floating Calendly Button -->
-    <a
-      href="https://calendly.com/oluwafemi-ezra/30min"
-      class="floating-calendly"
-    >
-      <i data-feather="calendar"></i> Book a Call
-    </a>
+    </div>
 
     <script>
+      // Feather icons
       feather.replace();
+
+      // Mobile nav toggle
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("open");
+        });
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+          });
+        });
+      }
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (!targetId || targetId === "#") return;
+          const target = document.querySelector(targetId);
+          if (!target) return;
+
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // FAQ accordion
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        question.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          document
+            .querySelectorAll(".faq-item.open")
+            .forEach((openItem) => openItem.classList.remove("open"));
+          if (!isOpen) {
+            item.classList.add("open");
+          }
+        });
+      });
     </script>
   </body>
 </html>
