@@ -1,7 +1,7 @@
 // src/components/Contact.jsx
 import { useState } from "react";
 
-const EMAIL = "your@email.com"; // <-- replace with your actual email
+const EMAIL = "hello@insightloopai.com";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });

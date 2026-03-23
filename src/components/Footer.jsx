@@ -4,7 +4,7 @@ const socials = [
   { label: "GitHub", href: "https://github.com/" },
   { label: "LinkedIn", href: "https://linkedin.com/in/" },
   { label: "Upwork", href: "https://www.upwork.com/" },
-  { label: "Email", href: "mailto:your@email.com" },
+  { label: "Email", href: "mailto:hello@insightloopai.com" },
 ];
 
 export default function Footer() {
@@ -23,7 +23,7 @@ export default function Footer() {
           </a>
         ))}
       </div>
-      <p>© {new Date().getFullYear()} AI Automation Engineer. All rights reserved.</p>
+      <p>© {new Date().getFullYear()} InsightLoopAI. All rights reserved.</p>
     </footer>
   );
 }

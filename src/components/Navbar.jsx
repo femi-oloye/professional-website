@@ -15,7 +15,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-gray-950/90 backdrop-blur border-b border-gray-800 px-6 py-4">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <a href="#" className="text-white font-bold text-lg tracking-tight">
-          AI<span className="text-blue-500">Dev</span>
+          Insight<span className="text-blue-500">Loop</span><span className="text-gray-400">AI</span>
         </a>
 
         {/* Desktop links */}
