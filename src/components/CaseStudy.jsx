@@ -1,7 +1,7 @@
 // src/components/CaseStudy.jsx
 export default function CaseStudy() {
   return (
-    <section className="py-16 px-6">
+    <section id="case-study" className="py-16 px-6">
       <h2 className="text-2xl font-bold mb-6">Case Study</h2>
 
       <div className="bg-gray-900 p-6 rounded-xl">

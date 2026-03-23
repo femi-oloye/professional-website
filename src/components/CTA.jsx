@@ -10,9 +10,12 @@ export default function CTA() {
         Available for freelance and contract work.
       </p>
 
-      <button className="mt-6 bg-blue-600 px-8 py-3 rounded-lg">
+      <a
+        href="#contact"
+        className="inline-block mt-6 bg-blue-600 hover:bg-blue-500 px-8 py-3 rounded-lg font-semibold transition-colors"
+      >
         Start a Project
-      </button>
+      </a>
     </section>
   );
 }

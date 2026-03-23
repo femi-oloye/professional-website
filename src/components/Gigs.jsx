@@ -19,7 +19,7 @@ const gigs = [
 
 export default function Gigs() {
   return (
-    <section className="py-16 px-6 bg-gray-900">
+    <section id="services" className="py-16 px-6 bg-gray-900">
       <h2 className="text-2xl font-bold mb-8">Services & Packages</h2>
 
       <div className="grid md:grid-cols-3 gap-6">
