@@ -1,6 +1,7 @@
 // src/App.jsx
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import ClientProof from "./components/ClientProof";
 import Projects from "./components/Projects";
 import Gigs from "./components/Gigs";
 import CaseStudy from "./components/CaseStudy";
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <ClientProof />
         <Projects />
         <Gigs />
         <CaseStudy />
