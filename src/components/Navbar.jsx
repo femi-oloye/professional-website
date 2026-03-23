@@ -22,18 +22,18 @@ export default function Navbar() {
     <nav
       className={`sticky top-0 z-50 px-6 py-4 transition-all duration-300 ${
         scrolled
-          ? "bg-gray-950/95 backdrop-blur-md border-b border-white/5 shadow-xl shadow-black/40"
+          ? "bg-stone-950/95 backdrop-blur-md border-b border-white/5 shadow-xl shadow-black/40"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-black">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-700 flex items-center justify-center text-white text-xs font-black shadow-lg shadow-amber-950/40">
             IL
           </div>
           <span className="text-white font-bold text-base tracking-tight">
-            Insight<span className="text-blue-400">Loop</span><span className="text-purple-400">AI</span>
+            Insight<span className="text-amber-400">Loop</span><span className="text-stone-400">AI</span>
           </span>
         </a>
 
@@ -43,7 +43,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-gray-400 hover:text-white transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all hover:after:w-full"
+                className="text-stone-400 hover:text-stone-100 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-amber-500 after:transition-all hover:after:w-full"
               >
                 {l.label}
               </a>
@@ -53,14 +53,14 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden md:inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 px-5 py-2 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-blue-900/30"
+          className="hidden md:inline-block bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-500 hover:to-orange-600 px-5 py-2 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-amber-950/30"
         >
           Hire Me
         </a>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg bg-gray-800 text-gray-300 text-lg"
+          className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg bg-stone-800 text-stone-300 text-lg"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -70,12 +70,12 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden mt-4 flex flex-col gap-3 border-t border-gray-800 pt-4 pb-2">
+        <div className="md:hidden mt-4 flex flex-col gap-3 border-t border-stone-800 pt-4 pb-2">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-gray-300 hover:text-white px-2 py-1 transition-colors"
+              className="text-stone-300 hover:text-stone-100 px-2 py-1 transition-colors"
               onClick={() => setOpen(false)}
             >
               {l.label}
@@ -83,7 +83,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-center px-4 py-2.5 rounded-lg text-sm font-semibold mt-1"
+            className="bg-gradient-to-r from-amber-600 to-orange-700 text-center px-4 py-2.5 rounded-lg text-sm font-semibold mt-1"
             onClick={() => setOpen(false)}
           >
             Hire Me

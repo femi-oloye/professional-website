@@ -4,20 +4,24 @@ import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Gigs from "./components/Gigs";
 import CaseStudy from "./components/CaseStudy";
+import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="bg-gray-950 text-white">
+    <div className="bg-stone-950 text-stone-50">
       <Navbar />
-      <Hero />
-      <Projects />
-      <Gigs />
-      <CaseStudy />
-      <CTA />
-      <Contact />
+      <main>
+        <Hero />
+        <Projects />
+        <Gigs />
+        <CaseStudy />
+        <FAQ />
+        <CTA />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

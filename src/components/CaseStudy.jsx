@@ -35,12 +35,12 @@ const results = [
 
 export default function CaseStudy() {
   return (
-    <section id="case-study" className="py-24 px-6 bg-gray-900">
+    <section id="case-study" className="py-24 px-6 bg-stone-900">
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-teal-400 text-sm font-semibold uppercase tracking-widest mb-2">Case Study</p>
+          <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-2">Case Study</p>
           <h2 className="text-3xl md:text-4xl font-black">AI Customer Support Automation</h2>
-          <p className="text-gray-400 mt-3 max-w-xl">
+          <p className="text-stone-400 mt-3 max-w-xl">
             How I helped an e-commerce brand cut support costs by 60% with a fully automated WhatsApp AI agent.
           </p>
         </div>
@@ -50,10 +50,10 @@ export default function CaseStudy() {
           {results.map((r) => (
             <div
               key={r.label}
-              className="bg-gray-950 border border-gray-800 rounded-2xl p-5 text-center"
+              className="bg-stone-950 border border-stone-800 rounded-2xl p-5 text-center"
             >
               <p className="text-2xl font-black text-white">{r.value}</p>
-              <p className="text-xs text-gray-500 mt-1">{r.label}</p>
+              <p className="text-xs text-stone-500 mt-1">{r.label}</p>
             </div>
           ))}
         </div>
@@ -63,14 +63,14 @@ export default function CaseStudy() {
           {steps.map((s, i) => (
             <div
               key={i}
-              className="flex gap-5 bg-gray-950 border border-gray-800 rounded-2xl p-6 hover:border-gray-600 transition-colors"
+              className="flex gap-5 bg-stone-950 border border-stone-800 rounded-2xl p-6 hover:border-stone-600 transition-colors"
             >
-              <div className="shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-xs font-black text-white">
+              <div className="shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-orange-700 flex items-center justify-center text-xs font-black text-white">
                 {s.step}
               </div>
               <div>
                 <h4 className="font-bold mb-1">{s.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.detail}</p>
+                <p className="text-stone-400 text-sm leading-relaxed">{s.detail}</p>
               </div>
             </div>
           ))}
@@ -78,9 +78,9 @@ export default function CaseStudy() {
 
         {/* Tech stack */}
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <span className="text-xs text-gray-600 uppercase tracking-widest">Stack:</span>
+          <span className="text-xs text-stone-600 uppercase tracking-widest">Stack:</span>
           {["n8n", "OpenAI GPT-4", "Twilio", "Airtable", "Slack API"].map((t) => (
-            <span key={t} className="text-xs font-mono text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
+            <span key={t} className="text-xs font-mono text-stone-400 bg-stone-800 px-3 py-1 rounded-full">
               {t}
             </span>
           ))}

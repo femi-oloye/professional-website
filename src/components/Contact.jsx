@@ -22,16 +22,16 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-6 bg-gray-950">
+    <section id="contact" className="py-24 px-6 bg-stone-950">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left info panel */}
           <div className="flex flex-col justify-center">
-            <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-2">Contact</p>
+            <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-2">Contact</p>
             <h2 className="text-3xl md:text-4xl font-black mb-4">Let's Work Together</h2>
-            <p className="text-gray-400 leading-relaxed mb-8">
-              Have a project in mind? I'll respond within 24 hours.
-              Whether it's a quick scoping call or a full project brief — let's talk.
+            <p className="text-stone-400 leading-relaxed mb-8">
+              Need an AI automation consultant, an n8n automation builder, or a RAG chatbot developer?
+              I work remotely with clients worldwide and usually respond within 24 hours.
             </p>
 
             {/* Availability */}
@@ -44,9 +44,9 @@ export default function Contact() {
             <div className="flex flex-col gap-4">
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-3 text-gray-400 hover:text-white group transition-colors"
+                className="flex items-center gap-3 text-stone-400 hover:text-stone-100 group transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-gray-800 group-hover:bg-gray-700 flex items-center justify-center transition-colors">
+                <div className="w-9 h-9 rounded-lg bg-stone-800 group-hover:bg-stone-700 flex items-center justify-center transition-colors">
                   ✉
                 </div>
                 <span className="text-sm">{EMAIL}</span>
@@ -55,9 +55,9 @@ export default function Contact() {
                 href="https://www.fiverr.com/s/381LN3B"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="flex items-center gap-3 text-gray-400 hover:text-white group transition-colors"
+                className="flex items-center gap-3 text-stone-400 hover:text-stone-100 group transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-gray-800 group-hover:bg-gray-700 flex items-center justify-center text-green-400 font-bold transition-colors">
+                <div className="w-9 h-9 rounded-lg bg-stone-800 group-hover:bg-stone-700 flex items-center justify-center text-green-400 font-bold transition-colors">
                   f
                 </div>
                 <span className="text-sm">Fiverr Profile</span>
@@ -66,23 +66,27 @@ export default function Contact() {
                 href="https://www.upwork.com/freelancers/~0181c3a41fc2bcb53a?mp_source=share"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="flex items-center gap-3 text-gray-400 hover:text-white group transition-colors"
+                className="flex items-center gap-3 text-stone-400 hover:text-stone-100 group transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-gray-800 group-hover:bg-gray-700 flex items-center justify-center text-green-500 font-bold transition-colors">
+                <div className="w-9 h-9 rounded-lg bg-stone-800 group-hover:bg-stone-700 flex items-center justify-center text-green-500 font-bold transition-colors">
                   ↑
                 </div>
                 <span className="text-sm">Upwork Profile</span>
               </a>
             </div>
+
+            <p className="mt-8 text-sm text-stone-500 leading-relaxed max-w-md">
+              Service area: remote worldwide. I support startups, agencies, consultants, and internal operations teams that need practical AI systems shipped fast.
+            </p>
           </div>
 
           {/* Right form */}
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+          <div className="bg-stone-900 border border-stone-800 rounded-2xl p-8">
             {sent ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-10">
                 <div className="text-4xl mb-4">✅</div>
                 <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
-                <p className="text-gray-400">
+                <p className="text-stone-400">
                   Your email client should have opened —<br />
                   I'll be in touch within 24 hours.
                 </p>
@@ -90,7 +94,7 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div>
-                  <label className="text-xs text-gray-500 uppercase tracking-widest mb-1.5 block">Name</label>
+                  <label className="text-xs text-stone-500 uppercase tracking-widest mb-1.5 block">Name</label>
                   <input
                     name="name"
                     type="text"
@@ -98,11 +102,11 @@ export default function Contact() {
                     placeholder="Your full name"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 text-white placeholder-stone-600 focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 uppercase tracking-widest mb-1.5 block">Email</label>
+                  <label className="text-xs text-stone-500 uppercase tracking-widest mb-1.5 block">Email</label>
                   <input
                     name="email"
                     type="email"
@@ -110,11 +114,11 @@ export default function Contact() {
                     placeholder="your@company.com"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 text-white placeholder-stone-600 focus:outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-500 uppercase tracking-widest mb-1.5 block">Project Details</label>
+                  <label className="text-xs text-stone-500 uppercase tracking-widest mb-1.5 block">Project Details</label>
                   <textarea
                     name="message"
                     required
@@ -122,12 +126,12 @@ export default function Contact() {
                     placeholder="Describe what you need built — the more detail, the better."
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    className="w-full bg-stone-800 border border-stone-700 rounded-xl px-4 py-3 text-white placeholder-stone-600 focus:outline-none focus:border-amber-500 transition-colors resize-none"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 px-6 py-3.5 rounded-xl font-semibold transition-all hover:scale-[1.02] shadow-lg shadow-blue-900/20"
+                  className="bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-500 hover:to-orange-600 px-6 py-3.5 rounded-xl font-semibold transition-all hover:scale-[1.02] shadow-lg shadow-amber-950/20"
                 >
                   Send Message
                 </button>

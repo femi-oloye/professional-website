@@ -8,15 +8,15 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-800/60 bg-gray-950 py-12 px-6">
+    <footer className="border-t border-stone-800/60 bg-stone-950 py-12 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand */}
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-black">
+          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-amber-500 to-orange-700 flex items-center justify-center text-white text-xs font-black shadow-lg shadow-amber-950/30">
             IL
           </div>
           <span className="text-white font-bold text-sm">
-            Insight<span className="text-blue-400">Loop</span><span className="text-purple-400">AI</span>
+            Insight<span className="text-amber-400">Loop</span><span className="text-stone-400">AI</span>
           </span>
         </div>
 
@@ -28,7 +28,7 @@ export default function Footer() {
               href={s.href}
               target={s.href.startsWith("http") ? "_blank" : undefined}
               rel={s.href.startsWith("http") ? "noreferrer noopener" : undefined}
-              className="text-gray-500 hover:text-white transition-colors"
+              className="text-stone-500 hover:text-stone-100 transition-colors"
             >
               {s.label}
             </a>
@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-gray-600 text-sm">
+        <p className="text-stone-600 text-sm">
           © {new Date().getFullYear()} InsightLoopAI
         </p>
       </div>
