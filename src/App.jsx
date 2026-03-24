@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ClientProof from "./components/ClientProof";
+import LiveDashboard from "./components/LiveDashboard";
 import Projects from "./components/Projects";
 import Gigs from "./components/Gigs";
 import CaseStudy from "./components/CaseStudy";
@@ -17,6 +18,7 @@ function App() {
       <main>
         <Hero />
         <ClientProof />
+        <LiveDashboard />
         <Projects />
         <Gigs />
         <CaseStudy />
