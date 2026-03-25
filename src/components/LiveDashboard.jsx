@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 const DASHBOARD_URL =
   "https://femi-oloye-anomaly-dashboard-app-kfzzai.streamlit.app/";
+const EMBED_URL =
+  "https://femi-oloye-anomaly-dashboard-app-kfzzai.streamlit.app/?embed=true";
 
 const highlights = [
   "Real-time anomaly flagging for unusual financial behavior",
@@ -9,6 +13,8 @@ const highlights = [
 ];
 
 export default function LiveDashboard() {
+  const [previewError, setPreviewError] = useState(false);
+
   return (
     <section id="anomaly-dashboard" className="py-24 px-6 bg-stone-950">
       <div className="max-w-6xl mx-auto">
@@ -46,10 +52,30 @@ export default function LiveDashboard() {
 
             <iframe
               title="Financial Anomaly Detection Dashboard"
-              src={DASHBOARD_URL}
+              src={EMBED_URL}
               loading="lazy"
+              onError={() => setPreviewError(true)}
               className="w-full h-[520px] bg-stone-950"
             />
+
+            <div className="px-4 py-3 border-t border-stone-800 bg-stone-950/80 text-xs text-stone-500">
+              If the preview is blank or says redirected too many times, open the app directly.
+              <a
+                href={DASHBOARD_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="ml-2 text-amber-400 hover:text-amber-300"
+              >
+                Open live app
+              </a>
+            </div>
+
+            {previewError && (
+              <div className="mx-4 mb-4 rounded-xl border border-amber-700/40 bg-amber-950/30 p-4 text-sm text-amber-200">
+                Preview is blocked by browser cookie/redirect policy. Use "Open Fullscreen"
+                or "Open live app" to access the Streamlit dashboard directly.
+              </div>
+            )}
           </div>
 
           <div className="lg:col-span-2 rounded-2xl border border-stone-800 bg-stone-900 p-6 flex flex-col">
