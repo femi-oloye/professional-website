@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import ClientProof from "./components/ClientProof";
 import LiveDashboard from "./components/LiveDashboard";
 import Projects from "./components/Projects";
+import ChatPortfolio from "./components/ChatPortfolio";
 import Gigs from "./components/Gigs";
 import CaseStudy from "./components/CaseStudy";
 import FAQ from "./components/FAQ";
@@ -20,6 +21,7 @@ function App() {
         <ClientProof />
         <LiveDashboard />
         <Projects />
+        <ChatPortfolio />
         <Gigs />
         <CaseStudy />
         <FAQ />

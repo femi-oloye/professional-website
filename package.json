@@ -1,6 +1,7 @@
 {
   "name": "ai-portfolio",
   "version": "1.0.0",
+  "description": "Portfolio website with live AI chat demo section",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -28,6 +28,15 @@ const projects = [
     color: "from-emerald-500 to-teal-700",
   },
   {
+    tag: "Client Template",
+    title: "AI Support Chat Template",
+    description:
+      "Reusable FastAPI support assistant template for client delivery. Includes PostgreSQL session storage, escalation logic, webhook handoff to n8n, optional API auth, and a frontend demo experience.",
+    metrics: ["Reusable by client", "Human handoff", "Deploy-ready stack"],
+    stack: ["FastAPI", "PostgreSQL", "OpenAI", "n8n"],
+    color: "from-sky-500 to-cyan-700",
+  },
+  {
     tag: "Data Analytics",
     title: "Sales Intelligence Dashboard",
     description:
