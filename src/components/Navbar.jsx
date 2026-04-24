@@ -40,7 +40,15 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex gap-8 text-sm">
+        <ul className="hidden md:flex gap-6 text-sm items-center">
+          <li>
+            <a
+              href="/dental-ai-receptionist"
+              className="text-amber-300 hover:text-amber-200 transition-colors"
+            >
+              Dental Leads Page
+            </a>
+          </li>
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -73,6 +81,13 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden mt-4 flex flex-col gap-3 border-t border-stone-800 pt-4 pb-2">
+          <a
+            href="/dental-ai-receptionist"
+            className="text-amber-300 hover:text-amber-200 px-2 py-1 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Dental Leads Page
+          </a>
           {links.map((l) => (
             <a
               key={l.href}
