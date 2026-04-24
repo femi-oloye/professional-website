@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import HomePage from "./pages/HomePage";
 import DentalLandingPage from "./pages/DentalLandingPage";
 import DentalLandingPageV2 from "./pages/DentalLandingPageV2";
+import DentalThankYouPage from "./pages/DentalThankYouPage";
 
 function DentalLandingAB() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ function App() {
       <Route path="/dental-ai-receptionist" element={<DentalLandingPage />} />
       <Route path="/dental-ai-receptionist-v2" element={<DentalLandingPageV2 />} />
       <Route path="/dental-ai-receptionist-ab" element={<DentalLandingAB />} />
+      <Route path="/dental-ai-receptionist-thank-you" element={<DentalThankYouPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

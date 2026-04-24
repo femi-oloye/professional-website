@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   BeforeAfterIllustration,
   ImpactSnapshotIllustration,
@@ -40,6 +41,7 @@ function trackDentalEvent(eventName, payload = {}) {
 }
 
 export default function DentalLandingExperience({ variant = "v1" }) {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     fullName: "",
     practiceName: "",
@@ -51,6 +53,13 @@ export default function DentalLandingExperience({ variant = "v1" }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("idle");
+  const [utmState, setUtmState] = useState({
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
+  });
   const copy = useMemo(() => HERO_COPY[variant] || HERO_COPY.v1, [variant]);
 
   useEffect(() => {
@@ -67,6 +76,25 @@ export default function DentalLandingExperience({ variant = "v1" }) {
       script.text = "window.__dentalTrackingLoaded = true; window.dataLayer = window.dataLayer || [];";
       document.head.appendChild(script);
     }
+
+    const params = new URLSearchParams(window.location.search);
+    const referrerHost = document.referrer
+      ? (() => {
+          try {
+            return new URL(document.referrer).hostname;
+          } catch {
+            return "direct";
+          }
+        })()
+      : "direct";
+
+    setUtmState({
+      utm_source: params.get("utm_source") || referrerHost,
+      utm_medium: params.get("utm_medium") || "organic",
+      utm_campaign: params.get("utm_campaign") || "dental_landing_default",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+    });
 
     trackDentalEvent("dental_lp_view", { variant });
   }, [variant]);
@@ -92,6 +120,7 @@ export default function DentalLandingExperience({ variant = "v1" }) {
         },
         body: JSON.stringify({
           _subject: "Dental Practice Audit Lead",
+          _template: "table",
           source: variant === "v2" ? "dental-landing-v2" : "dental-landing-v1",
           fullName: formState.fullName,
           practiceName: formState.practiceName,
@@ -100,6 +129,11 @@ export default function DentalLandingExperience({ variant = "v1" }) {
           monthlyLeads: formState.monthlyLeads,
           pms: formState.pms,
           challenge: formState.challenge,
+          utm_source: utmState.utm_source,
+          utm_medium: utmState.utm_medium,
+          utm_campaign: utmState.utm_campaign,
+          utm_term: utmState.utm_term,
+          utm_content: utmState.utm_content,
         }),
       });
 
@@ -118,6 +152,9 @@ export default function DentalLandingExperience({ variant = "v1" }) {
         challenge: "",
       });
       trackDentalEvent("dental_form_submit_success", { variant });
+      navigate(
+        `/dental-ai-receptionist-thank-you?variant=${variant}&utm_source=${encodeURIComponent(utmState.utm_source)}&utm_medium=${encodeURIComponent(utmState.utm_medium)}&utm_campaign=${encodeURIComponent(utmState.utm_campaign)}`
+      );
     } catch (error) {
       setSubmitStatus("error");
       trackDentalEvent("dental_form_submit_error", {
@@ -270,6 +307,11 @@ export default function DentalLandingExperience({ variant = "v1" }) {
             </div>
 
             <form onSubmit={onSubmit} className="grid md:grid-cols-2 gap-4">
+              <input type="hidden" name="utm_source" value={utmState.utm_source} readOnly />
+              <input type="hidden" name="utm_medium" value={utmState.utm_medium} readOnly />
+              <input type="hidden" name="utm_campaign" value={utmState.utm_campaign} readOnly />
+              <input type="hidden" name="utm_term" value={utmState.utm_term} readOnly />
+              <input type="hidden" name="utm_content" value={utmState.utm_content} readOnly />
               <input
                 type="text"
                 name="fullName"
