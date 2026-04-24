@@ -4,6 +4,7 @@ import {
   BeforeAfterIllustration,
   ImpactSnapshotIllustration,
 } from "../components/DentalIllustrations";
+import Footer from "../components/Footer";
 
 const HERO_COPY = {
   v1: {
@@ -395,6 +396,7 @@ export default function DentalLandingExperience({ variant = "v1" }) {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

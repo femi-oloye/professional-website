@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from "react";
+import Footer from "../components/Footer";
 
 const CALENDAR_URL =
   "https://calendly.com/oluwafemi-ezra/30min?hide_event_type_details=1&hide_gdpr_banner=1";
@@ -68,6 +69,7 @@ export default function DentalThankYouPage() {
           />
         </section>
       </div>
+      <Footer />
     </div>
   );
 }

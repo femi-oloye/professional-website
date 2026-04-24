@@ -16,7 +16,7 @@ export default function Footer() {
             IL
           </div>
           <span className="text-white font-bold text-sm">
-            Insight<span className="text-amber-400">Loop</span><span className="text-stone-400">AI</span>
+            Insight<span className="text-amber-400">Loop</span> <span className="text-stone-300">AI Solutions</span>
           </span>
         </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-stone-600 text-sm">
-          © {new Date().getFullYear()} InsightLoopAI
+          © {new Date().getFullYear()} InsightLoop AI Solutions
         </p>
       </div>
     </footer>
