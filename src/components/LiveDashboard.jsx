@@ -6,7 +6,7 @@ const EMBED_URL =
   "https://femi-oloye-anomaly-dashboard-app-kfzzai.streamlit.app/?embed=true";
 
 const highlights = [
-  "Real-time anomaly flagging for unusual financial behavior",
+  "Flags failed-but-debited, duplicate, mismatched and suspicious transactions",
   "Clean risk monitoring view for non-technical stakeholders",
   "Built and deployed on Streamlit Cloud for fast sharing",
   "Designed for practical operations and decision support",

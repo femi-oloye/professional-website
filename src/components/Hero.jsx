@@ -4,10 +4,10 @@ function scrollTo(id) {
 }
 
 const stats = [
-  { value: "20+", label: "Projects Delivered" },
-  { value: "15+", label: "Happy Clients" },
+  { value: "10+", label: "AI & Data Systems Built" },
+  { value: "5", label: "Live Demos to Try" },
   { value: "3+", label: "Years Experience" },
-  { value: "100%", label: "Job Success" },
+  { value: "24h", label: "Response Time" },
 ];
 
 export default function Hero() {

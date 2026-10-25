@@ -41,7 +41,7 @@ export default function CTA() {
         </div>
 
         <p className="mt-8 text-stone-600 text-sm">
-          Response within 24 hours &middot; 100% Job Success on Upwork
+          Response within 24 hours &middot; Clear milestones &middot; Documented handoff
         </p>
       </div>
     </section>

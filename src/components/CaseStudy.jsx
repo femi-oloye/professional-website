@@ -2,35 +2,35 @@
 const steps = [
   {
     step: "01",
-    title: "Problem Discovery",
+    title: "Problem",
     detail:
-      "E-commerce client spending 40+ hrs/week on manual customer support. 3-hour average response time losing sales.",
+      "Bill-payment platforms (power, airtime, TV) lose money to transactions that fail but still debit the wallet, duplicate charges, and amount mismatches, and these often surface only when customers complain.",
   },
   {
     step: "02",
     title: "System Design",
     detail:
-      "Designed a WhatsApp AI bot with GPT-4, Airtable CRM sync, and a smart escalation router for complex tickets.",
+      "Designed a modular rule engine: each anomaly type is its own rule, flags are combined per transaction, and every flagged transaction gets a primary anomaly type and a severity level.",
   },
   {
     step: "03",
-    title: "Build & Integration",
+    title: "Build",
     detail:
-      "Built with n8n for orchestration, Twilio for WhatsApp, OpenAI for smart replies, and Slack for agent alerts.",
+      "Built with Python and Pandas on a synthetic fintech dataset, with a Streamlit dashboard for KPIs, anomaly breakdowns, trends over time, and a drill-down table filterable by service.",
   },
   {
     step: "04",
-    title: "Results",
+    title: "Outcome",
     detail:
-      "Deployed in 2 weeks. Bot handles 80% of tickets autonomously. Human agents only touch escalations.",
+      "Ops and finance teams can see revenue at risk, leakage %, and which transactions to investigate first, without writing SQL. The engine can plug into a real transaction database.",
   },
 ];
 
 const results = [
-  { value: "80%", label: "Tickets Handled by AI" },
-  { value: "< 30s", label: "Avg. Response Time" },
-  { value: "40 hrs", label: "Saved Per Week" },
-  { value: "2 wks", label: "Delivery Time" },
+  { value: "5", label: "Anomaly Rules" },
+  { value: "3", label: "Severity Levels" },
+  { value: "5,000+", label: "Transactions Analysed" },
+  { value: "Live", label: "Deployed Demo" },
 ];
 
 export default function CaseStudy() {
@@ -38,10 +38,10 @@ export default function CaseStudy() {
     <section id="case-study" className="py-24 px-6 bg-stone-900">
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-2">Case Study</p>
-          <h2 className="text-3xl md:text-4xl font-black">AI Customer Support Automation</h2>
+          <p className="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-2">Build Walkthrough</p>
+          <h2 className="text-3xl md:text-4xl font-black">Transaction Anomaly &amp; Revenue Leakage Detection</h2>
           <p className="text-stone-400 mt-3 max-w-xl">
-            How I helped an e-commerce brand cut support costs by 60% with a fully automated WhatsApp AI agent.
+            How I take a build from problem to working system, using the financial anomaly dashboard above. Built on synthetic data for demonstration.
           </p>
         </div>
 
@@ -79,11 +79,19 @@ export default function CaseStudy() {
         {/* Tech stack */}
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <span className="text-xs text-stone-600 uppercase tracking-widest">Stack:</span>
-          {["n8n", "OpenAI GPT-4", "Twilio", "Airtable", "Slack API"].map((t) => (
+          {["Python", "Pandas", "Streamlit", "Parquet"].map((t) => (
             <span key={t} className="text-xs font-mono text-stone-400 bg-stone-800 px-3 py-1 rounded-full">
               {t}
             </span>
           ))}
+          <a
+            href="https://github.com/femi-oloye/anomaly-dashboard"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+          >
+            View code →
+          </a>
         </div>
       </div>
     </section>
