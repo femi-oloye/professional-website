@@ -1,6 +1,9 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from "react";
 
+// Our wedding invitation product, on its own subdomain.
+const INVITES_URL = "https://invites.insightloopai.com";
+
 const links = [
   { label: "Live Demo", href: "#anomaly-dashboard" },
   { label: "Projects", href: "#projects" },
@@ -49,6 +52,14 @@ export default function Navbar() {
               Dental Leads Page
             </a>
           </li>
+          <li>
+            <a
+              href={INVITES_URL}
+              className="text-amber-300 hover:text-amber-200 transition-colors"
+            >
+              Wedding Invitations
+            </a>
+          </li>
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -87,6 +98,13 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
           >
             Dental Leads Page
+          </a>
+          <a
+            href={INVITES_URL}
+            className="text-amber-300 hover:text-amber-200 px-2 py-1 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Wedding Invitations
           </a>
           {links.map((l) => (
             <a
