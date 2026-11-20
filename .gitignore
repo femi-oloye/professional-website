@@ -1,0 +1,12 @@
+# Dependencies: installed by `npm install` (Cloudflare Pages runs it on every deploy)
+node_modules/
+
+# Local secrets and tool caches
+.env
+.env.local
+.wrangler/
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
